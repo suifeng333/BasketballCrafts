@@ -1,4 +1,7 @@
 {
   "item.ikunchicken.basketball": "Basketball",
-  "item.ikunchicken.litchi": "Litchi"
+  "item.ikunchicken.litchi": "Litchi",
+
+  "block.ikunchicken.kun_ore": "Kun Ore",
+  "block.ikunchicken.kun_block": "Kun Block"
 }

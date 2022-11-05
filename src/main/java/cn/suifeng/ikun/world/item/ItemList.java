@@ -13,4 +13,5 @@ public class ItemList {
     public static final RegistryObject<Item> BASKETBALL = ITEMS.register("basketball",() -> new BasketballItem(new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> LITCHI = ITEMS.register("litchi",() -> new Item(new Item.Properties().tab(TabList.TAB_IKUNCHICKEN).food(FoodList.LITCHI)));
     public static final RegistryObject<Item> KUN_ORE = ITEMS.register("kun_ore",() -> new BlockItem(BlockList.KUN_ORE.get(),new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> KUN_BLOCK = ITEMS.register("kun_block",() -> new BlockItem(BlockList.KUN_BLOCK.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
 }
