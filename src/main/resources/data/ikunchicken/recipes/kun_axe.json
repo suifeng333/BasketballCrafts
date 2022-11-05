@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":[
+    "## ",
+    "#k ",
+    " k "
+  ],
+  "key": {
+    "#": {
+      "item": "ikunchicken:kun_ingot"
+    },
+    "k": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "ikunchicken:kun_axe",
+    "count": 1
+  }
+}
