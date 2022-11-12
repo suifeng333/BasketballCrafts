@@ -1,10 +1,10 @@
 {
-  "item.ikunchicken.basketball": "Basketball",
-  "item.ikunchicken.litchi": "Litchi",
-  "item.ikunchicken.kun_ingot": "Kun Ingot",
-  "item.ikunchicken.kun_pickaxe": "Kun Pickaxe",
-  "item.ikunchicken.kun_axe": "Kun Axe",
+  "item.ikunchicken.basketball": "§lBasketball",
+  "item.ikunchicken.litchi": "§lLitchi",
+  "item.ikunchicken.kun_ingot": "§lKun Ingot",
+  "item.ikunchicken.kun_pickaxe": "§lKun Pickaxe",
+  "item.ikunchicken.kun_axe": "§lKun Axe",
 
-  "block.ikunchicken.kun_ore": "Kun Ore",
-  "block.ikunchicken.kun_block": "Kun Block"
+  "block.ikunchicken.kun_ore": "§lKun Ore",
+  "block.ikunchicken.kun_block": "§lKun Block"
 }
