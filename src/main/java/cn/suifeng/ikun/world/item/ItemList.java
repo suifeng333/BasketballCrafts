@@ -1,13 +1,11 @@
 package cn.suifeng.ikun.world.item;
 
 import cn.suifeng.ikun.world.level.block.BlockList;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.lwjgl.system.CallbackI;
 
 public class ItemList {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,"ikunchicken");
@@ -19,4 +17,5 @@ public class ItemList {
     public static final RegistryObject<Item> KUN_INGOT = ITEMS.register("kun_ingot",() -> new Item(new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> KUN_PICKAXE = ITEMS.register("kun_pickaxe", () -> new PickaxeItem(TierList.KUN,-3,-1.5F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> KUN_AXE = ITEMS.register("kun_axe",() -> new AxeItem(TierList.KUN,-3,-1.0F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> RAW_KUN = ITEMS.register("raw_kun",() -> new Item((new Item.Properties()).tab(TabList.TAB_IKUNCHICKEN)));
 }
