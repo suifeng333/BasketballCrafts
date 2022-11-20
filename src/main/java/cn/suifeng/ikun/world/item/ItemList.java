@@ -3,6 +3,7 @@ package cn.suifeng.ikun.world.item;
 import cn.suifeng.ikun.world.level.block.BlockList;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -24,4 +25,8 @@ public class ItemList {
     public static final RegistryObject<Item> STRIPPED_LICHI_WOOD = ITEMS.register("stripped_lichi_wood",() -> new BlockItem(BlockList.STRIPPED_LICHI_WOOD.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> STRIPPED_LICHI_LOG = ITEMS.register("stripped_lichi_log",() -> new BlockItem(BlockList.STRIPPED_LICHI_LOG.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> LICHI_LEAVES = ITEMS.register("lichi_leaves",() -> new BlockItem(BlockList.LICHI_LEAVES.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
 }

@@ -1,6 +1,7 @@
 package cn.suifeng.ikun.world.level.block;
 
 import cn.suifeng.ikun.IkunChicken;
+import cn.suifeng.ikun.world.feature.tree.LichiTreeGrower;
 import cn.suifeng.ikun.world.level.block.custom.ModFlammableRotatedPillarBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -9,6 +10,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -56,4 +58,9 @@ public class BlockList {
         }
 
     });
+    public static final RegistryObject<Block> LICHI_SAPLING = BLOCKS.register("lichi_sapling",() -> new SaplingBlock(new LichiTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
+    }
 }
