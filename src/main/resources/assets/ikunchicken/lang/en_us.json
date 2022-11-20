@@ -6,5 +6,10 @@
   "item.ikunchicken.kun_axe": "§lKun Axe",
 
   "block.ikunchicken.kun_ore": "§lKun Ore",
-  "block.ikunchicken.kun_block": "§lKun Block"
+  "block.ikunchicken.kun_block": "§lKun Block",
+  "block.ikunchicken.lichi_wood": "§lLichi Wood",
+  "block.ikunchicken.lichi_log": "§lLichi Log",
+  "block.ikunchicken.lichi_planks": "§lLichi Planks",
+  "block.ikunchicken.stripped_lichi_wood": "§lStripped Lichi Wood",
+  "block.ikunchicken.stripped_lichi_log": "§lStripped Lichi Log"
 }
