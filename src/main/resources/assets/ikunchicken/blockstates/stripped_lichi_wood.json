@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ikunchicken:block/stripped_lichi_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "ikunchicken:block/stripped_lichi_wood"
+    },
+    "axis=z": {
+      "model": "ikunchicken:block/stripped_lichi_wood",
+      "x": 90
+    }
+  }
+}
