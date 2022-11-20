@@ -17,4 +17,9 @@ public class ItemList {
     public static final RegistryObject<Item> KUN_PICKAXE = ITEMS.register("kun_pickaxe", () -> new PickaxeItem(TierList.KUN,-3,-1.5F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> KUN_AXE = ITEMS.register("kun_axe",() -> new AxeItem(TierList.KUN,-3,-1.0F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> RAW_KUN = ITEMS.register("raw_kun",() -> new Item((new Item.Properties()).tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> LICHI_WOOD = ITEMS.register("lichi_wood",() -> new BlockItem(BlockList.LICHI_WOOD.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> LICHI_LOG = ITEMS.register("lichi_log",() -> new BlockItem(BlockList.LICHI_LOG.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> LICHI_PLANKS = ITEMS.register("lichi_planks",() -> new BlockItem(BlockList.LICHI_PLANKS.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> STRIPPED_LICHI_WOOD = ITEMS.register("stripped_lichi_wood",() -> new BlockItem(BlockList.STRIPPED_LICHI_WOOD.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> STRIPPED_LICHI_LOG = ITEMS.register("stripped_lichi_log",() -> new BlockItem(BlockList.STRIPPED_LICHI_LOG.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
 }

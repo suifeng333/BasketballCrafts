@@ -21,11 +21,11 @@ public class BlockList {
 
     public static final RegistryObject<Block> KUN_ORE = BLOCKS.register("kun_ore",() -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,2.0F)));
     public static final RegistryObject<Block> KUN_BLOCK = BLOCKS.register("kun_block", () -> new Block(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(7.0F, 15.0F).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> LICHI_WOOD = BLOCKS.register("lichi_wood",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noOcclusion()));
-    public static final RegistryObject<Block> STRIPPED_LICHI_WOOD = BLOCKS.register("stripped_lichi_wood",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).noOcclusion()));
-    public static final RegistryObject<Block> LICHI_LOG = BLOCKS.register("lichi_log",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).noOcclusion()));
-    public static final RegistryObject<Block> STRIPPED_LICHI_LOG = BLOCKS.register("stripped_lichi_log",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).noOcclusion()));
-    public static final RegistryObject<Block> LICHI_PLANKS = BLOCKS.register("lichi_planks",() -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
+    public static final RegistryObject<Block> LICHI_WOOD = BLOCKS.register("lichi_wood",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noOcclusion().sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> STRIPPED_LICHI_WOOD = BLOCKS.register("stripped_lichi_wood",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).noOcclusion().sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> LICHI_LOG = BLOCKS.register("lichi_log",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).noOcclusion().sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> STRIPPED_LICHI_LOG = BLOCKS.register("stripped_lichi_log",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).noOcclusion().sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> LICHI_PLANKS = BLOCKS.register("lichi_planks",() -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)){
         @Override
         public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
             return true;

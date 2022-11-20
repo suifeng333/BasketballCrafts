@@ -6,5 +6,10 @@
   "item.ikunchicken.kun_axe": "§l磨练了两年半的坤斧",
 
   "block.ikunchicken.kun_ore": "§l坤矿",
-  "block.ikunchicken.kun_block": "§l坤块"
+  "block.ikunchicken.kun_block": "§l坤块",
+  "block.ikunchicken.lichi_wood": "§l荔枝木",
+  "block.ikunchicken.lichi_log": "§l荔枝原木",
+  "block.ikunchicken.lichi_planks": "§l荔枝木板",
+  "block.ikunchicken.stripped_lichi_wood": "§l去皮荔枝木",
+  "block.ikunchicken.stripped_lichi_log": "§l去皮荔枝原木"
 }
