@@ -5,10 +5,7 @@ import cn.suifeng.ikun.world.level.block.custom.ModFlammableRotatedPillarBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.OreBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
@@ -39,6 +36,23 @@ public class BlockList {
         @Override
         public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
             return 5;
+        }
+
+    });
+    public static final RegistryObject<Block> LICHI_LEAVES = BLOCKS.register("lichi_leaves",() -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)){
+        @Override
+        public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+            return true;
+        }
+
+        @Override
+        public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+            return 60;
+        }
+
+        @Override
+        public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+            return 30;
         }
 
     });
