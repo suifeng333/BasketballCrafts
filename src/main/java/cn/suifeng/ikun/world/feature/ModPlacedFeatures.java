@@ -10,5 +10,5 @@ import java.util.function.Supplier;
 
 public class ModPlacedFeatures {
     public static final PlacedFeature LICHI_PLACED=
-            PlacementUtils.register("lichi_placed",ModConfiguredFeatures.LICHI_SPAWN.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(10,0.2f,2))));
+            PlacementUtils.register("lichi_placed",ModConfiguredFeatures.LICHI_SPAWN.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(3,0.1f,2))));
 }
