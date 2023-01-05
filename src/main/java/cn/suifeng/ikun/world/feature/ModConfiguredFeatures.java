@@ -2,11 +2,13 @@ package cn.suifeng.ikun.world.feature;
 
 import cn.suifeng.ikun.world.level.block.BlockList;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -32,4 +34,10 @@ public class ModConfiguredFeatures {
 
     public static final ConfiguredFeature<RandomFeatureConfiguration,?> LICHI_SPAWN =
             FeatureUtils.register("lichi_spawn",new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(LICHI_CHECKED,0.5f)),LICHI_CHECKED)));
+
+    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_KUN_ORES = List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BlockList.KUN_ORE.get().defaultBlockState()));
+
+    public static final ConfiguredFeature<?, ?> KUN_ORE = FeatureUtils.register("kun_ore",
+            Feature.ORE.configured(new OreConfiguration(OVERWORLD_KUN_ORES, 9)));
 }
