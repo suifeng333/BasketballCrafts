@@ -34,7 +34,7 @@ credits="感谢vvvbbbcz提供技术支持！" #optional
 authors="suifeng7663" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-此模组教你成为一名Ikun
+本模组为娱乐模组，所包含内容没有任何指向性内容和不良内容
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.examplemod]] #optional
