@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.gui.OverlayRegistry;
 
 public class BasketballRenderer extends EntityRenderer<BasketballEntity> {
     private final EntityRendererProvider.Context context;
