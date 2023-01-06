@@ -1,5 +1,6 @@
 package cn.suifeng.ikun;
 
+import cn.suifeng.ikun.world.entity.EntityTypeList;
 import cn.suifeng.ikun.world.item.ItemList;
 import cn.suifeng.ikun.world.level.block.BlockList;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -21,8 +22,9 @@ public class IkunChicken {
     public IkunChicken() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ItemList.register(eventBus);
-        BlockList.register(eventBus);
+        ItemList.register(eventBus); //注册物品
+        BlockList.register(eventBus); //注册方块
+        EntityTypeList.register(eventBus); //注册实体
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
