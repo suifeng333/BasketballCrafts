@@ -3,6 +3,7 @@ package cn.suifeng.ikun.client.model;// Made with Blockbench 4.5.2
 // Paste this class into your mod and generate all required imports
 
 
+import cn.suifeng.ikun.IkunChicken;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
@@ -15,7 +16,7 @@ import net.minecraft.world.entity.Entity;
 
 public class BasketballModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "custom_model"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(IkunChicken.MOD_ID, "basketball"), "main");
 	private final ModelPart bb_main;
 
 	public BasketballModel(ModelPart root) {
