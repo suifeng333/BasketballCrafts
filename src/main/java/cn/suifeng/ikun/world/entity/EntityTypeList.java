@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class EntityTypeList {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, IkunChicken.MOD_ID);
 
-    public static final RegistryObject<EntityType<BasketballEntity>> BASKETBALL = ENTITY_TYPES.register("basketball", () -> EntityType.Builder.of(BasketballEntity::new, MobCategory.MISC).sized(1.0F,1.0F).build("basketball"));
+    public static final RegistryObject<EntityType<BasketballEntity>> BASKETBALL = ENTITY_TYPES.register("basketball", () -> EntityType.Builder.<BasketballEntity>of(BasketballEntity::new, MobCategory.MISC).sized(1.0F,1.0F).build("basketball"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
