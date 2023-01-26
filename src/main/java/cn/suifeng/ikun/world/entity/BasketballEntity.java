@@ -1,21 +1,14 @@
 package cn.suifeng.ikun.world.entity;
 
-import cn.suifeng.ikun.world.item.BasketballItem;
-import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.registries.IForgeRegistryEntry;
-import org.jetbrains.annotations.Nullable;
 
 public class BasketballEntity extends Entity{
     public BasketballEntity(EntityType<?> pEntityType, Level pLevel) {
@@ -64,5 +57,43 @@ public class BasketballEntity extends Entity{
         this.shoot((double)f, (double)f1, (double)f2, pVelocity, pInaccuracy);
         Vec3 vec3 = pProjectile.getDeltaMovement();
         this.setDeltaMovement(this.getDeltaMovement().add(vec3.x, pProjectile.isOnGround() ? 0.0D : vec3.y, vec3.z));
+    }
+
+    protected static float lerpRotation(float p_37274_, float p_37275_) {
+        while(p_37275_ - p_37274_ < -180.0F) {
+            p_37274_ -= 360.0F;
+        }
+
+        while(p_37275_ - p_37274_ >= 180.0F) {
+            p_37274_ += 360.0F;
+        }
+
+        return Mth.lerp(0.2F, p_37274_, p_37275_);
+    }
+
+    protected void updateRotation() {
+        Vec3 vec3 = this.getDeltaMovement();
+        double d0 = vec3.horizontalDistance();
+        this.setXRot(lerpRotation(this.xRotO, (float)(Mth.atan2(vec3.y, d0) * (double)(180F / (float)Math.PI))));
+        this.setYRot(lerpRotation(this.yRotO, (float)(Mth.atan2(vec3.x, vec3.z) * (double)(180F / (float)Math.PI))));
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        this.updateRotation();
+        Vec3 vec3 = this.getDeltaMovement();
+        double d2 = this.getX() + vec3.x;
+        double d0 = this.getY() + vec3.y;
+        double d1 = this.getZ() + vec3.z;
+        if (!this.isNoGravity()) {
+            Vec3 vec31 = this.getDeltaMovement();
+            this.setDeltaMovement(vec31.x, vec31.y - (double)this.getGravity(), vec31.z);
+        }
+        this.setPos(d2, d0, d1);
+    }
+
+    public float getGravity() {
+        return 0.03F;
     }
 }
