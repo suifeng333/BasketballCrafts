@@ -1,5 +1,6 @@
 package cn.suifeng.ikun.world.entity;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.util.Mth;
@@ -71,7 +72,7 @@ public class BasketballEntity extends Entity{
         return Mth.lerp(0.2F, p_37274_, p_37275_);
     }
 
-    protected void updateRotation() {
+    public void updateRotation() {
         Vec3 vec3 = this.getDeltaMovement();
         double d0 = vec3.horizontalDistance();
         this.setXRot(lerpRotation(this.xRotO, (float)(Mth.atan2(vec3.y, d0) * (double)(180F / (float)Math.PI))));
@@ -82,14 +83,24 @@ public class BasketballEntity extends Entity{
     public void tick() {
         super.tick();
         this.updateRotation();
+        this.checkInsideBlocks();
         Vec3 vec3 = this.getDeltaMovement();
         double d2 = this.getX() + vec3.x;
         double d0 = this.getY() + vec3.y;
         double d1 = this.getZ() + vec3.z;
-        if (!this.isNoGravity()) {
-            Vec3 vec31 = this.getDeltaMovement();
-            this.setDeltaMovement(vec31.x, vec31.y - (double)this.getGravity(), vec31.z);
+        float f;
+        if (this.isInWater()) {
+            for(int i = 0; i < 4; ++i) {
+                float f1 = 0.25F;
+                this.level.addParticle(ParticleTypes.BUBBLE, d2 - vec3.x * 0.25D, d0 - vec3.y * 0.25D, d1 - vec3.z * 0.25D, vec3.x, vec3.y, vec3.z);
+            }
+
+            f = 0.8F;
+        } else {
+            f = 0.99F;
         }
+        this.setDeltaMovement(vec3.scale((double)f));
+        this.setDeltaMovement(vec3.x, vec3.y - (double)this.getGravity(), vec3.z);
         this.setPos(d2, d0, d1);
     }
 
