@@ -82,7 +82,7 @@ public class BasketballEntity extends Entity{
     @Override
     public void tick() {
         super.tick();
-        this.updateRotation();
+        this.updateRotation(); //更新旋转
         this.checkInsideBlocks();
         Vec3 vec3 = this.getDeltaMovement();
         double d2 = this.getX() + vec3.x;
