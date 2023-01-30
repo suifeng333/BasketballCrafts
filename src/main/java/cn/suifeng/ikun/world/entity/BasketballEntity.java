@@ -1,17 +1,38 @@
 package cn.suifeng.ikun.world.entity;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.TheEndGatewayBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
+import javax.annotation.Nullable;
+import java.util.UUID;
+
 public class BasketballEntity extends Entity{
+    @Nullable
+    private UUID ownerUUID;
+    @Nullable
+    private Entity cachedOwner;
+    private boolean leftOwner;
+
     public BasketballEntity(EntityType<?> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -79,9 +100,73 @@ public class BasketballEntity extends Entity{
         this.setYRot(lerpRotation(this.yRotO, (float)(Mth.atan2(vec3.x, vec3.z) * (double)(180F / (float)Math.PI))));
     }
 
+    @Nullable
+    public Entity getOwner() {
+        if (this.cachedOwner != null && !this.cachedOwner.isRemoved()) {
+            return this.cachedOwner;
+        } else if (this.ownerUUID != null && this.level instanceof ServerLevel) {
+            this.cachedOwner = ((ServerLevel)this.level).getEntity(this.ownerUUID);
+            return this.cachedOwner;
+        } else {
+            return null;
+        }
+    }
+
+    protected void onHit(HitResult pResult) {
+        HitResult.Type hitresult$type = pResult.getType();
+        if (hitresult$type == HitResult.Type.ENTITY) {
+            this.onHitEntity((EntityHitResult)pResult);
+        } else if (hitresult$type == HitResult.Type.BLOCK) {
+            this.onHitBlock((BlockHitResult)pResult);
+        }
+
+        if (hitresult$type != HitResult.Type.MISS) {
+            this.gameEvent(GameEvent.PROJECTILE_LAND, this.getOwner());
+        }
+
+    }
+
+    protected void onHitBlock(BlockHitResult p_37258_) {
+    }
+
+    protected void onhitEntity(EntityHitResult pResult) {
+    }
+
+    protected void onHitEntity(EntityHitResult pResult) {
+        this.onhitEntity(pResult);
+        pResult.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 0.0F);
+    }
+
+    protected boolean canHitEntity(Entity p_37250_) {
+        if (!p_37250_.isSpectator() && p_37250_.isAlive() && p_37250_.isPickable()) {
+            Entity entity = this.getOwner();
+            return entity == null || this.leftOwner || !entity.isPassengerOfSameVehicle(p_37250_);
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public void tick() {
         super.tick();
+        HitResult hitresult = ProjectileUtil.getHitResult(this, this::canHitEntity);
+        boolean flag = false;
+        if (hitresult.getType() == HitResult.Type.BLOCK) {
+            BlockPos blockpos = ((BlockHitResult)hitresult).getBlockPos();
+            BlockState blockstate = this.level.getBlockState(blockpos);
+            if (blockstate.is(Blocks.NETHER_PORTAL)) {
+                this.handleInsidePortal(blockpos);
+                flag = true;
+            } else if (blockstate.is(Blocks.END_GATEWAY)) {
+                BlockEntity blockentity = this.level.getBlockEntity(blockpos);
+                if (blockentity instanceof TheEndGatewayBlockEntity && TheEndGatewayBlockEntity.canEntityTeleport(this)) {
+                    TheEndGatewayBlockEntity.teleportEntity(this.level, blockpos, blockstate, this, (TheEndGatewayBlockEntity)blockentity);
+                }
+
+                flag = true;
+            }
+        }
+        this.onHit(hitresult);
         this.updateRotation(); //更新旋转
         this.checkInsideBlocks();
         Vec3 vec3 = this.getDeltaMovement();
