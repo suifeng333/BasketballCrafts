@@ -29,7 +29,7 @@ displayName="IkunChickenMod" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="" #optional
 # A text field displayed in the mod UI
-credits="无" #optional
+credits="" #optional
 # A text field displayed in the mod UI
 authors="suifeng7663" #optional
 # The description text for the mod (multi line!) (#mandatory)
