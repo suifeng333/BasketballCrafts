@@ -1,6 +1,7 @@
 package cn.suifeng.ikun.world.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -126,14 +127,16 @@ public class BasketballEntity extends Entity{
 
     }
 
-    protected void onHitBlock(BlockHitResult p_37258_) {
-    }
-
-    protected void onhitEntity(EntityHitResult pResult) {
+    protected void onHitBlock(BlockHitResult blockHitResult) {
+        Direction direction = blockHitResult.getDirection();
+        double d2 = this.getX() + direction.getStepX();
+        double d0 = this.getY() + direction.getStepY();
+        double d1 = this.getZ() + direction.getStepZ();
+        this.setDeltaMovement(direction.getStepX(), direction.getStepY() - (double)this.getGravity(), direction.getStepZ());
+        this.setPos(d2, d0, d1);
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
-        this.onhitEntity(pResult);
         pResult.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 0.0F);
     }
 
@@ -156,7 +159,6 @@ public class BasketballEntity extends Entity{
             BlockState blockstate = this.level.getBlockState(blockpos);
             if (blockstate.is(Blocks.NETHER_PORTAL)) {
                 this.handleInsidePortal(blockpos);
-                flag = true;
             } else if (blockstate.is(Blocks.END_GATEWAY)) {
                 BlockEntity blockentity = this.level.getBlockEntity(blockpos);
                 if (blockentity instanceof TheEndGatewayBlockEntity && TheEndGatewayBlockEntity.canEntityTeleport(this)) {
@@ -167,7 +169,7 @@ public class BasketballEntity extends Entity{
             }
         }
         this.onHit(hitresult);
-        this.updateRotation(); //更新旋转
+        this.updateRotation();
         this.checkInsideBlocks();
         Vec3 vec3 = this.getDeltaMovement();
         double d2 = this.getX() + vec3.x;
@@ -190,6 +192,6 @@ public class BasketballEntity extends Entity{
     }
 
     public float getGravity() {
-        return 0.03F;
+        return 0.05F;
     }
 }
