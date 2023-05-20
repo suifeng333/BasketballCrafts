@@ -2,6 +2,7 @@ package cn.suifeng.ikun.world.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -129,15 +130,22 @@ public class BasketballEntity extends Entity{
 
     protected void onHitBlock(BlockHitResult blockHitResult) {
         Direction direction = blockHitResult.getDirection();
-        double d2 = this.getX() + direction.getStepX();
-        double d0 = this.getY() + direction.getStepY();
-        double d1 = this.getZ() + direction.getStepZ();
-        this.setDeltaMovement(direction.getStepX(), direction.getStepY() - (double)this.getGravity(), direction.getStepZ());
-        this.setPos(d2, d0, d1);
+        Vec3 vec3 = this.getDeltaMovement();
+        switch (direction) {
+            case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y, vec3.z);
+            case EAST, WEST -> this.setDeltaMovement(-vec3.x, vec3.y, vec3.z);
+            case NORTH, SOUTH -> this.setDeltaMovement(vec3.x, vec3.y, -vec3.z);
+        }
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
-        pResult.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 0.0F);
+        Direction direction = this.getDirection();
+        Vec3 vec3 = this.getDeltaMovement();
+        switch (direction) {
+            case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y, vec3.z);
+            case EAST, WEST -> this.setDeltaMovement(-vec3.x, vec3.y, vec3.z);
+            case NORTH, SOUTH -> this.setDeltaMovement(vec3.x, vec3.y, -vec3.z);
+        }
     }
 
     protected boolean canHitEntity(Entity p_37250_) {
