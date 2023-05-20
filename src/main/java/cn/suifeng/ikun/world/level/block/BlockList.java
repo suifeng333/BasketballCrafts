@@ -18,8 +18,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockList {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, IkunChicken.MOD_ID);
 
-    public static final RegistryObject<Block> KUN_ORE = BLOCKS.register("kun_ore",() -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,2.0F)));
-    public static final RegistryObject<Block> KUN_BLOCK = BLOCKS.register("kun_block", () -> new Block(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(7.0F, 15.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> TITANIUM_ORE = BLOCKS.register("titanium_ore",() -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F,2.0F)));
+    public static final RegistryObject<Block> TITANIUM_BLOCK = BLOCKS.register("titanium_block", () -> new Block(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(7.0F, 15.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> LICHI_WOOD = BLOCKS.register("lichi_wood",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noOcclusion().sound(SoundType.WOOD)));
     public static final RegistryObject<Block> STRIPPED_LICHI_WOOD = BLOCKS.register("stripped_lichi_wood",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).noOcclusion().sound(SoundType.WOOD)));
     public static final RegistryObject<Block> LICHI_LOG = BLOCKS.register("lichi_log",() -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).noOcclusion().sound(SoundType.WOOD)));

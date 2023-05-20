@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 public enum TierList implements Tier {
 
-    KUN(25, 2500, 25.0F, 27.0F, 14, () -> Ingredient.of(ItemList.KUN_INGOT.get()));
+    TITANIUM(25, 2500, 25.0F, 27.0F, 14, () -> Ingredient.of(ItemList.TITANIUM_INGOT.get()));
 
     private final int uses; // 耐久
     private final float speed; // 攻击速度

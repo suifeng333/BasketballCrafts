@@ -12,11 +12,11 @@ public class ItemList {
 
     public static final RegistryObject<Item> BASKETBALL = ITEMS.register("basketball",() -> new BasketballItem(new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> LITCHI = ITEMS.register("litchi",() -> new Item(new Item.Properties().tab(TabList.TAB_IKUNCHICKEN).food(FoodList.LITCHI)));
-    public static final RegistryObject<Item> KUN_ORE = ITEMS.register("kun_ore",() -> new BlockItem(BlockList.KUN_ORE.get(),new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
-    public static final RegistryObject<Item> KUN_BLOCK = ITEMS.register("kun_block",() -> new BlockItem(BlockList.KUN_BLOCK.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
-    public static final RegistryObject<Item> KUN_INGOT = ITEMS.register("kun_ingot",() -> new Item(new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
-    public static final RegistryObject<Item> KUN_PICKAXE = ITEMS.register("kun_pickaxe", () -> new PickaxeItem(TierList.KUN,-3,-1.5F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
-    public static final RegistryObject<Item> KUN_AXE = ITEMS.register("kun_axe",() -> new AxeItem(TierList.KUN,-3,-1.0F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> TITANIUM_ORE = ITEMS.register("titanium_ore",() -> new BlockItem(BlockList.TITANIUM_ORE.get(),new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> TITANIUM_BLOCK = ITEMS.register("titanium_block",() -> new BlockItem(BlockList.TITANIUM_BLOCK.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot",() -> new Item(new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe", () -> new PickaxeItem(TierList.TITANIUM,-3,-1.5F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
+    public static final RegistryObject<Item> TITANIUM_AXE = ITEMS.register("titanium_axe",() -> new AxeItem(TierList.TITANIUM,-3,-1.0F,new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> RAW_KUN = ITEMS.register("raw_kun",() -> new Item((new Item.Properties()).tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> LICHI_WOOD = ITEMS.register("lichi_wood",() -> new BlockItem(BlockList.LICHI_WOOD.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));
     public static final RegistryObject<Item> LICHI_LOG = ITEMS.register("lichi_log",() -> new BlockItem(BlockList.LICHI_LOG.get(), new Item.Properties().tab(TabList.TAB_IKUNCHICKEN)));

@@ -1,12 +1,12 @@
 {
   "item.ikunchicken.basketball": "§l篮球",
   "item.ikunchicken.litchi": "§l荔枝",
-  "item.ikunchicken.kun_ingot": "§l鸡锭",
-  "item.ikunchicken.kun_pickaxe": "§l磨练了两年半的鸡镐",
-  "item.ikunchicken.kun_axe": "§l磨练了两年半的鸡斧",
+  "item.ikunchicken.titanium_ingot": "§l钛锭",
+  "item.ikunchicken.titanium_pickaxe": "§l钛镐",
+  "item.ikunchicken.titanium_axe": "§l钛斧",
 
-  "block.ikunchicken.kun_ore": "§l鸡矿",
-  "block.ikunchicken.kun_block": "§l鸡块",
+  "block.ikunchicken.titanium_ore": "§l钛矿",
+  "block.ikunchicken.titanium_block": "§l钛块",
   "block.ikunchicken.lichi_wood": "§l荔枝木",
   "block.ikunchicken.lichi_log": "§l荔枝原木",
   "block.ikunchicken.lichi_planks": "§l荔枝木板",

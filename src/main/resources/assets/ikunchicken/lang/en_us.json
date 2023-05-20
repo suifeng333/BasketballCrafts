@@ -1,12 +1,12 @@
 {
   "item.ikunchicken.basketball": "§lBasketball",
   "item.ikunchicken.litchi": "§lLitchi",
-  "item.ikunchicken.kun_ingot": "§lChicken Ingot",
-  "item.ikunchicken.kun_pickaxe": "§lChicken Pickaxe",
-  "item.ikunchicken.kun_axe": "§lChicken Axe",
+  "item.ikunchicken.titanium_ingot": "§lTitanium Ingot",
+  "item.ikunchicken.titanium_pickaxe": "§lTitanium Pickaxe",
+  "item.ikunchicken.titanium_axe": "§lTitanium Axe",
 
-  "block.ikunchicken.kun_ore": "§lChicken Ore",
-  "block.ikunchicken.kun_block": "§lChicken Block",
+  "block.ikunchicken.titanium_ore": "§lTitanium Ore",
+  "block.ikunchicken.titanium_block": "§lTitanium Block",
   "block.ikunchicken.lichi_wood": "§lLichi Wood",
   "block.ikunchicken.lichi_log": "§lLichi Log",
   "block.ikunchicken.lichi_planks": "§lLichi Planks",
