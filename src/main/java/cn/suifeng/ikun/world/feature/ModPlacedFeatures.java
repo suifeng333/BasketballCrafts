@@ -14,6 +14,6 @@ public class ModPlacedFeatures {
     public static final PlacedFeature LICHI_PLACED =
             PlacementUtils.register("lichi_placed",ModConfiguredFeatures.LICHI_SPAWN.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(3,0.1f,2))));
 
-    public static final PlacedFeature KUN_ORE_PLACED =
-            PlacementUtils.register("kun_ore_placed",ModConfiguredFeatures.KUN_ORE.placed(ModOrePlacement.commonOrePlacement(50,HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),VerticalAnchor.absolute(80)))));
+    public static final PlacedFeature TITANIUM_ORE_PLACED =
+            PlacementUtils.register("titanium_ore_placed",ModConfiguredFeatures.TITANIUM_ORE.placed(ModOrePlacement.commonOrePlacement(50,HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),VerticalAnchor.absolute(80)))));
 }

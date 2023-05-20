@@ -35,9 +35,9 @@ public class ModConfiguredFeatures {
     public static final ConfiguredFeature<RandomFeatureConfiguration,?> LICHI_SPAWN =
             FeatureUtils.register("lichi_spawn",new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(LICHI_CHECKED,0.5f)),LICHI_CHECKED)));
 
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_KUN_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BlockList.KUN_ORE.get().defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TITANIUM_ORES = List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BlockList.TITANIUM_ORE.get().defaultBlockState()));
 
-    public static final ConfiguredFeature<?, ?> KUN_ORE = FeatureUtils.register("kun_ore",
-            Feature.ORE.configured(new OreConfiguration(OVERWORLD_KUN_ORES, 9)));
+    public static final ConfiguredFeature<?, ?> TITANIUM_ORE = FeatureUtils.register("titanium_ore",
+            Feature.ORE.configured(new OreConfiguration(OVERWORLD_TITANIUM_ORES, 9)));
 }

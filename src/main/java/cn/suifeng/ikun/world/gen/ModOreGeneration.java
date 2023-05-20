@@ -13,6 +13,6 @@ public class ModOreGeneration {
         List<Supplier<PlacedFeature>> base =
                 event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
 
-        base.add(() -> ModPlacedFeatures.KUN_ORE_PLACED);
+        base.add(() -> ModPlacedFeatures.TITANIUM_ORE_PLACED);
     }
 }
