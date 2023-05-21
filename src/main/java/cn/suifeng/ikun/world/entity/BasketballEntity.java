@@ -132,19 +132,19 @@ public class BasketballEntity extends Entity{
         Direction direction = blockHitResult.getDirection();
         Vec3 vec3 = this.getDeltaMovement();
         switch (direction) {
-            case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y, vec3.z);
-            case EAST, WEST -> this.setDeltaMovement(-vec3.x, vec3.y, vec3.z);
-            case NORTH, SOUTH -> this.setDeltaMovement(vec3.x, vec3.y, -vec3.z);
+            case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y -(double)this.getGravity(), vec3.z);
+            case EAST, WEST -> this.setDeltaMovement(-vec3.x, vec3.y - (double)this.getGravity(), vec3.z);
+            case NORTH, SOUTH -> this.setDeltaMovement(vec3.x, vec3.y - (double)this.getGravity(), -vec3.z);
         }
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
-        Direction direction = this.getDirection();
+        Direction direction = pResult.getEntity().getDirection();
         Vec3 vec3 = this.getDeltaMovement();
         switch (direction) {
-            case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y, vec3.z);
-            case EAST, WEST -> this.setDeltaMovement(-vec3.x, vec3.y, vec3.z);
-            case NORTH, SOUTH -> this.setDeltaMovement(vec3.x, vec3.y, -vec3.z);
+            case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y -(double)this.getGravity(), vec3.z);
+            case EAST, WEST -> this.setDeltaMovement(-vec3.x, vec3.y - (double)this.getGravity(), vec3.z);
+            case NORTH, SOUTH -> this.setDeltaMovement(vec3.x, vec3.y - (double)this.getGravity(), -vec3.z);
         }
     }
 
