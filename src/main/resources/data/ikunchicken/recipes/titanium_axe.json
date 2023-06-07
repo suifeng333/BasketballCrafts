@@ -7,14 +7,14 @@
   ],
   "key": {
     "#": {
-      "item": "ikunchicken:kun_ingot"
+      "item": "ikunchicken:titanium_ingot"
     },
     "k": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "ikunchicken:kun_axe",
+    "item": "ikunchicken:titanium_axe",
     "count": 1
   }
 }

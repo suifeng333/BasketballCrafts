@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "ikunchicken:kun_ingot"
+      "item": "ikunchicken:titanium_ingot"
     }
   },
   "result": {
-    "item": "ikunchicken:kun_block",
+    "item": "ikunchicken:titanium_block",
     "count": 1
   }
 }
