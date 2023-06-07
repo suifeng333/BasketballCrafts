@@ -2,13 +2,11 @@ package cn.suifeng.ikun.world.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -139,7 +137,7 @@ public class BasketballEntity extends Entity{
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
-        Direction direction = pResult.getEntity().getDirection();
+        Direction direction = Direction.getFacingAxis(pResult.getEntity(),getDirection().getAxis());
         Vec3 vec3 = this.getDeltaMovement();
         switch (direction) {
             case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y -(double)this.getGravity(), vec3.z);
