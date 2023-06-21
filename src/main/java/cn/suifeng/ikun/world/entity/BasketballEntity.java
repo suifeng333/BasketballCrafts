@@ -29,6 +29,7 @@ import java.util.UUID;
 public class BasketballEntity extends Entity{
     @Nullable
     private UUID ownerUUID;
+    private int hitTimes;
     @Nullable
     private Entity cachedOwner;
     private boolean leftOwner;
@@ -129,10 +130,17 @@ public class BasketballEntity extends Entity{
     protected void onHitBlock(BlockHitResult blockHitResult) {
         Direction direction = blockHitResult.getDirection();
         Vec3 vec3 = this.getDeltaMovement();
+        double energyLoss = 0.7;
         switch (direction) {
-            case UP, DOWN -> this.setDeltaMovement(vec3.x, -vec3.y -(double)this.getGravity(), vec3.z);
-            case EAST, WEST -> this.setDeltaMovement(-vec3.x, vec3.y - (double)this.getGravity(), vec3.z);
-            case NORTH, SOUTH -> this.setDeltaMovement(vec3.x, vec3.y - (double)this.getGravity(), -vec3.z);
+            case UP, DOWN:
+                this.setDeltaMovement(vec3.x * energyLoss, -vec3.y * energyLoss - (double) this.getGravity(), vec3.z * energyLoss);
+                break;
+            case EAST, WEST:
+                this.setDeltaMovement(-vec3.x * energyLoss, vec3.y * energyLoss - (double) this.getGravity(), vec3.z * energyLoss);
+                break;
+            case NORTH, SOUTH:
+                this.setDeltaMovement(vec3.x * energyLoss, vec3.y * energyLoss - (double) this.getGravity(), -vec3.z * energyLoss);
+                break;
         }
     }
 
