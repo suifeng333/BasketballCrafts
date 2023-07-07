@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
 public class BasketballItem extends Item {
@@ -15,9 +16,17 @@ public class BasketballItem extends Item {
         super(item);
     }
 
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.SPEAR;
+    }
+
+    public int getUseDuration(ItemStack stack) {
+        return 72000;
+    }
+
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemstack = player.getItemInHand(interactionHand);
-        level.playSound((Player)player,player.getX(),player.getY(),player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS,0.5F,0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
+        level.playSound(player,player.getX(),player.getY(),player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS,0.5F,0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         player.getEyePosition();
         if (!level.isClientSide) {
             BasketballEntity basketballentity = new BasketballEntity(level, player);
@@ -25,6 +34,7 @@ public class BasketballItem extends Item {
             basketballentity.setPos(player.getEyePosition());
             level.addFreshEntity(basketballentity);
         }
+        player.startUsingItem(interactionHand);
         return InteractionResultHolder.sidedSuccess(itemstack,level.isClientSide());
     }
 }
