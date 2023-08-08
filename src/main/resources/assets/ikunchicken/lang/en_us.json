@@ -13,5 +13,7 @@
   "block.ikunchicken.stripped_lichi_wood": "§lStripped Lichi Wood",
   "block.ikunchicken.stripped_lichi_log": "§lStripped Lichi Log",
   "block.ikunchicken.lichi_leaves": "§lLichi Leaves",
-  "block.ikunchicken.lichi_sapling": "§lLichi Sapling"
+  "block.ikunchicken.lichi_sapling": "§lLichi Sapling",
+
+  "itemGroup.ikunchicken": "Basketball Technology"
 }
