@@ -10,6 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -17,16 +18,13 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TheEndGatewayBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.*;
 import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class BasketballEntity extends Entity{
+public class BasketballEntity extends Entity {
     @Nullable
     private UUID ownerUUID;
     private int hitTimes;
@@ -133,13 +131,13 @@ public class BasketballEntity extends Entity{
         double energyLoss = 0.7;
         switch (direction) {
             case UP, DOWN:
-                this.setDeltaMovement(vec3.x * energyLoss, -vec3.y * energyLoss - (double) this.getGravity(), vec3.z * energyLoss);
+                this.setDeltaMovement(vec3.x * energyLoss, -vec3.y * energyLoss, vec3.z * energyLoss);
                 break;
             case EAST, WEST:
-                this.setDeltaMovement(-vec3.x * energyLoss, vec3.y * energyLoss - (double) this.getGravity(), vec3.z * energyLoss);
+                this.setDeltaMovement(-vec3.x * energyLoss, vec3.y * energyLoss, vec3.z * energyLoss);
                 break;
             case NORTH, SOUTH:
-                this.setDeltaMovement(vec3.x * energyLoss, vec3.y * energyLoss - (double) this.getGravity(), -vec3.z * energyLoss);
+                this.setDeltaMovement(vec3.x * energyLoss, vec3.y * energyLoss, -vec3.z * energyLoss);
                 break;
         }
     }
@@ -192,7 +190,6 @@ public class BasketballEntity extends Entity{
         float f;
         if (this.isInWater()) {
             for(int i = 0; i < 4; ++i) {
-                float f1 = 0.25F;
                 this.level.addParticle(ParticleTypes.BUBBLE, d2 - vec3.x * 0.25D, d0 - vec3.y * 0.25D, d1 - vec3.z * 0.25D, vec3.x, vec3.y, vec3.z);
             }
 
